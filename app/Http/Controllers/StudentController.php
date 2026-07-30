@@ -13,7 +13,7 @@ class StudentController extends Controller
             [
                 'id' => 1,
                 'nis' => '1001',
-                'name' => 'niger',
+                'name' => 'b',
                 'class' => 'somewhere?',
                 'major' => 'siber bulli'      
             ],
@@ -21,65 +21,9 @@ class StudentController extends Controller
             [
                 'id' => 2,
                 'nis' => '1002',
-                'name' => 'niga',
+                'name' => 'a',
                 'class' => 'wheresome',
                 'major' => 'penist'  
-            ],
-
-            [
-                'id' => 3,
-                'nis' => '1003',
-                'name' => 'neige',
-                'class' => 'whesome',
-                'major' => 'blek'  
-            ],
-
-            [
-                'id' => 4,
-                'nis' => '1004',
-                'name' => 'nika',
-                'class' => 'whe',
-                'major' => 'nei'  
-            ],
-
-            [
-                'id' => 5,
-                'nis' => '1005',
-                'name' => 'naga',
-                'class' => 'wh',
-                'major' => 'posi'  
-            ],
-
-            [
-                'id' => 6,
-                'nis' => '1006',
-                'name' => 'neger',
-                'class' => 'wh',
-                'major' => 'posi'  
-            ],
-
-            [
-                'id' => 7,
-                'nis' => '1007',
-                'name' => 'nega',
-                'class' => 'wh',
-                'major' => 'posi'  
-            ],
-
-            [
-                'id' => 8,
-                'nis' => '1008',
-                'name' => 'neckhurt',
-                'class' => 'wh',
-                'major' => 'posi'  
-            ],
-
-            [
-                'id' => 9,
-                'nis' => '1008',
-                'name' => 'nickgurr',
-                'class' => 'wh',
-                'major' => 'posi'  
             ],
             ];
         // return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
