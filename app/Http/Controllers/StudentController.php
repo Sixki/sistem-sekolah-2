@@ -8,20 +8,111 @@ class StudentController extends Controller
 {
     public function index() // -> buat functiom baru dengan nama index
     {
-        return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
+        $title = 'sistem sekolah - daftar siswa';
+        $students = [
+            [
+                'id' => 1,
+                'nis' => '1001',
+                'name' => 'niger',
+                'class' => 'somewhere?',
+                'major' => 'siber bulli'      
+            ],
+
+            [
+                'id' => 2,
+                'nis' => '1002',
+                'name' => 'niga',
+                'class' => 'wheresome',
+                'major' => 'penist'  
+            ],
+
+            [
+                'id' => 3,
+                'nis' => '1003',
+                'name' => 'neige',
+                'class' => 'whesome',
+                'major' => 'blek'  
+            ],
+
+            [
+                'id' => 4,
+                'nis' => '1004',
+                'name' => 'nika',
+                'class' => 'whe',
+                'major' => 'nei'  
+            ],
+
+            [
+                'id' => 5,
+                'nis' => '1005',
+                'name' => 'naga',
+                'class' => 'wh',
+                'major' => 'posi'  
+            ],
+
+            [
+                'id' => 6,
+                'nis' => '1006',
+                'name' => 'neger',
+                'class' => 'wh',
+                'major' => 'posi'  
+            ],
+
+            [
+                'id' => 7,
+                'nis' => '1007',
+                'name' => 'nega',
+                'class' => 'wh',
+                'major' => 'posi'  
+            ],
+
+            [
+                'id' => 8,
+                'nis' => '1008',
+                'name' => 'neckhurt',
+                'class' => 'wh',
+                'major' => 'posi'  
+            ],
+
+            [
+                'id' => 9,
+                'nis' => '1008',
+                'name' => 'nickgurr',
+                'class' => 'wh',
+                'major' => 'posi'  
+            ],
+            ];
+        // return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
+        return view('students.index', [
+            'title' => $title, 'students' => $students
+        ]);
+
     }
 
     public function show(string $id) // -> sama seperti yang diatas, cuma tambahin attribute string $idnya
     {
-        return "menampilkan detail siswa dengan id : {$id}";
+        // return "menampilkan detail siswa dengan id : {$id}";
+        $title = 'sistem sekolah - data siswa';
+        return view('students.show', [
+            'title' => $title
+        ]);
+
     }
 
     public function edit(string $id){
-        return "ini adalah halaman mengedit data siswa dari id : {$id}";
+        // return "ini adalah halaman mengedit data siswa dari id : {$id}";
+        $title = 'sistem sekolah - edit siswa';
+        return view('students.edit', [
+            'title' => $title
+        ]);
     }
 
     public function create(){
-        return "ini adalah halaman menambahkan siswa";
+        // return "ini adalah halaman menambahkan siswa";
+        $title = 'sistem sekolah - tambah siswa';
+        return view('students.create', [
+            'title' => $title
+        ]);
     }
 
     public function store(){
