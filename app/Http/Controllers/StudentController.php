@@ -50,6 +50,7 @@ class StudentController extends Controller
     }
     public function store()
     {
+        
         return "Menambah data siswa baru/>";
     }
 
