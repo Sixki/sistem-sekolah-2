@@ -1,4 +1,4 @@
-@props(['type' => 'SUCCESS'])
+@props(['type' => 'WARNING'])
 
 
 @if ($type === 'ERROR')
