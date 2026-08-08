@@ -7,11 +7,35 @@ use Illuminate\Http\Request;
 
 class EditController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request, string $id)
+    public function __invoke(string $id)
     {
-        return "ini adalah halaman edit kelas dengan id : {$id}";
+        $title = 'sistem sekolah - edit kelas';
+        $classes = [
+            [
+                'id' => 1,
+                'name' => 'XII AKL 1',
+                'grade' => 'XII',
+                'major' => 'AKL',
+                'homeroom_teacher' => 'Budi Santoso'
+            ],
+            [
+                'id' => 2,
+                'name' => 'XII TKJ 1',
+                'grade' => 'XII',
+                'major' => 'TKJ',
+                'homeroom_teacher' => 'Siti Aminah'
+            ]
+        ];
+
+        $class = collect($classes)->firstWhere('id', (int) $id);
+
+        if (!$class) {
+            abort(404, 'Data kelas tidak ditemukan');
+        }
+
+        return view('Classes.edit', [
+            'title' => $title,
+            'class' => $class
+        ]);
     }
 }

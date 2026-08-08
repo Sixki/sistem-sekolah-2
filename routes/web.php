@@ -26,6 +26,13 @@ Route::name('students.')->prefix('students')->group(function(){ // -> ada beberp
 
 Route::get('/', [StudentController::class, 'index'])->name('index'); // -> berikan nama ke halaman data siswa
 
+// halaman tambah siswa
+
+// Route::get('/create', function(){ // -> nambah page tambah siswa
+//     return "ini adalah halaman tambah siswa"; // -> return value ke web
+// })->name('create');
+
+Route::get('/create', [StudentController::class, 'create'])->name('create');
 // halaman detail siswa
 
 // Route::get('/{id}', function(string $id){ // -> nambahkan halaman lagi kusus setelah /students dengan /{id} dengan mendeclare $id sebagai string supaya bisa direturn
@@ -34,13 +41,7 @@ Route::get('/', [StudentController::class, 'index'])->name('index'); // -> berik
 
 Route::get('/{id}',[StudentController::class, 'show'])->name('show'); // -> beri nama
 
-// halaman tambah siswa
 
-// Route::get('/create', function(){ // -> nambah page tambah siswa
-//     return "ini adalah halaman tambah siswa"; // -> return value ke web
-// })->name('create');
-
-Route::get('/create', [StudentController::class, 'create'])->name('create');
 
 // halaman edit
 
@@ -85,6 +86,13 @@ Route::name('Teacher.')->prefix('Teacher')->group(function(){ // -> ada beberpa 
 
 Route::get('/', [TeacherController::class, 'index'])->name('index'); // -> berikan nama ke halaman data siswa
 
+// halaman tambah siswa
+
+// Route::get('/create', function(){ // -> nambah page tambah siswa
+//     return "ini adalah halaman tambah siswa"; // -> return value ke web
+// })->name('create');
+
+Route::get('/create', [TeacherController::class, 'create'])->name('create');
 // halaman detail siswa
 
 // Route::get('/{id}', function(string $id){ // -> nambahkan halaman lagi kusus setelah /students dengan /{id} dengan mendeclare $id sebagai string supaya bisa direturn
@@ -93,13 +101,7 @@ Route::get('/', [TeacherController::class, 'index'])->name('index'); // -> berik
 
 Route::get('/{id}',[TeacherController::class, 'show'])->name('show'); // -> beri nama
 
-// halaman tambah siswa
 
-// Route::get('/create', function(){ // -> nambah page tambah siswa
-//     return "ini adalah halaman tambah siswa"; // -> return value ke web
-// })->name('create');
-
-Route::get('/create', [TeacherController::class, 'create'])->name('create');
 
 // halaman edit
 
@@ -139,11 +141,13 @@ Route::name('SchoolClass.')->prefix('SchoolClass')->group(function(){
 // halaman daftar guru
 Route::get('/', IndexController::class)->name('index');
 
+// halaman tambah guru
+Route::get('/create', CreateController::class)->name('create');
+
 // halaman detail guru
 Route::get('/{id}',ShowController::class)->name('show');
 
-// halaman tambah guru
-Route::get('/create', CreateController::class)->name('create');
+
 
 // halaman guru
 Route::get('/{id}/edit', EditController::class)->name('edit');

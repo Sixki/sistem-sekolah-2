@@ -5,7 +5,7 @@
 @section('content')
 
 <x-alert type="ERROR">
-    Terdapat kesalahan ketika menambahkan data siswa baru ke dalam sistem sekolah   
+    Terdapat kesalahan ketika menambahkan data Kelas baru ke dalam sistem sekolah   
 </x-alert>
 
 <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5">
@@ -13,7 +13,7 @@
         <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Tahun Ajaran 2025/2026</p>
         <h1 class="font-display text-3xl font-semibold text-[#16213A]">Daftar Siswa</h1>
     </div>
-    <a href="{{ route('students.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
+    <a href="{{ route('SchoolClass.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">
         Catat Siswa Baru
     </a>
 </div>
@@ -23,35 +23,34 @@
         <thead>
             <tr class="border-b border-[#16213A] text-[11px] uppercase tracking-[0.15em] text-[#16213A]">
                 <th class="w-14 px-5 py-3.5 font-semibold">No.</th>
-                <th class="px-5 py-3.5 font-semibold">NIS</th>
-                <th class="px-5 py-3.5 font-semibold">Nama Siswa</th>
-                <th class="px-5 py-3.5 font-semibold">Kelas</th>
-                <th class="px-5 py-3.5 font-semibold">Jurusan</th>
-                <th class="px-5 py-3.5 text-right font-semibold">Tindakan</th>
+                <th class="px-5 py-3.5 font-semibold">Nama</th>
+                <th class="px-0 py-3.5 font-semibold">Kelas</th>
+                <th class="px-1 py-3.5 text-right font-semibold">jurusan</th>
+                <th class="px-1 py-3.5 text-right font-semibold">Wali kelas</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($students as $student)
+            @foreach ($classes as $classe)
             <tr class="border-b border-[#EFEDE6] hover:bg-[#FAF9F5]">
                 <td class="px-5 py-4 font-display text-lg text-[#A16207]">
                     {{ $loop->iteration }}
                 </td>
                 <td class="px-5 py-4 font-mono text-xs text-slate-500">
-                    {{ $student['nis'] }}
+                    {{ $classe['name'] }}
                 </td>
                 <td class="px-5 py-4 font-medium text-[#16213A]">
-                    {{ $student['name'] }}
+                    {{ $classe['grade'] }}
                 </td>
                 <td class="px-5 py-4">
-                    {{ $student['class'] }}
+                    {{ $classe['major'] }}
                 </td>
                 <td class="px-5 py-4">
-                    {{ $student['major'] }}
+                    {{ $classe['homeroom_teacher'] }}
                 </td>
                 <td class="px-5 py-4">
                     <div class="flex justify-end gap-4 text-xs font-medium">
-                        <a href="{{ route('students.show', $student['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
-                        <a href="{{ route('students.show', $student['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
+                        <a href="{{ route('SchoolClass.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Lihat</a>
+                        <a href="{{ route('SchoolClass.show', $classe['id']) }}" class="text-[#16213A] hover:text-[#A16207]">Ubah</a>
                         <form action="" method="POST"
                             onsubmit="return confirm('Hapus data siswa ini dari buku induk?')">
 

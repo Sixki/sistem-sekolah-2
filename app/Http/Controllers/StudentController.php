@@ -15,7 +15,7 @@ class StudentController extends Controller
                 'nis' => '1001',
                 'name' => 'b',
                 'class' => 'somewhere?',
-                'major' => 'siber bulli'      
+                'major' => 'disign'      
             ],
 
             [
@@ -23,7 +23,7 @@ class StudentController extends Controller
                 'nis' => '1002',
                 'name' => 'a',
                 'class' => 'wheresome',
-                'major' => 'penist'  
+                'major' => 'ciber'  
             ],
             ];
         // return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
