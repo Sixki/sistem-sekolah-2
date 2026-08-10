@@ -4,63 +4,70 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
 class StudentController extends Controller
 {
-    public function index()
+    public function index() // -> buat functiom baru dengan nama index
     {
-
-        $title = 'Sistem Sekolah - Daftar Siswa';
+        $title = 'sistem sekolah - daftar siswa';
         $students = [
-            ['id' => 1, 'nis' => '1001', 'name' => 'John Doe', 'class' => 'XII TKJ 2', 'major' => 'TKJ'],
-            ['id' => 2, 'nis' => '1002', 'name' => 'Jane Smith', 'class' => 'XII TKJ 1', 'major' => 'TKJ'],
-            ['id' => 3, 'nis' => '1003', 'name' => 'Michael Johnson', 'class' => 'XII TKJ 1', 'major' => 'BiD'],
-        ];
+            [
+                'id' => 1,
+                'nis' => '1001',
+                'name' => 'b',
+                'class' => 'XII AKL 1',
+                'major' => 'design'      
+            ],
+
+            [
+                'id' => 2,
+                'nis' => '1002',
+                'name' => 'a',
+                'class' => 'XII TKJ 1',
+                'major' => 'cyber'  
+            ],
+            ];
+        // return "ini adalah halaman daftar siswa"; // -> yang memakai class function index bakalan ngereturn ini di webnya
         return view('students.index', [
-            'title' => $title,
-            'students' => $students,
+            'title' => $title, 'students' => $students
         ]);
+
     }
 
-
-    public function show(string $id)
+    public function show(string $id) // -> sama seperti yang diatas, cuma tambahin attribute string $idnya
     {
-        $title = 'Sistem Sekolah - Detail Siswa';
+        // return "menampilkan detail siswa dengan id : {$id}";
+        $title = 'sistem sekolah - data siswa';
         return view('students.show', [
-            'title' => $title,
-            'student' => ['id' => $id, 'name' => 'John Doe', 'age' => 20]
+            'title' => $title
         ]);
+
     }
 
-    public function create()
-    {
-        $title = 'Sistem Sekolah - Tambah Siswa';
-        return view ('students.create', [
+    public function edit(string $id){
+        // return "ini adalah halaman mengedit data siswa dari id : {$id}";
+        $title = 'sistem sekolah - edit siswa';
+        return view('students.edit', [
             'title' => $title
         ]);
     }
 
-    public function edit(string $id)
-    {
-        $title = 'Sistem Sekolah - Edit Siswa';
-        return view('students.edit', [
-            'title' => $title,
-            'student' => ['id' => $id, 'name' => 'John Doe', 'age' => 20]
+    public function create(){
+        // return "ini adalah halaman menambahkan siswa";
+        $title = 'sistem sekolah - tambah siswa';
+        return view('students.create', [
+            'title' => $title
         ]);
     }
-    public function store()
-    {
-        
-        return "Menambah data siswa baru/>";
+
+    public function store(){
+        return "menambahkan data siswa baru";
     }
 
-    public function update(string $id)
-    {
-        return "Mengupdate data siswa dengan ID: {$id}/>";
+    public function update(string $id){
+        return "siswa dengan id : {$id} sudah diupdate";
     }
 
-    public function destroy(string $id)
-    {
-        return "Menghapus data siswa dengan ID: {$id}/>";
+    public function delete(string $id){
+        return "menghapus siswa dengan id : {$id}";
     }
 }

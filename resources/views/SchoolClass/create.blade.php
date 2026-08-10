@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', '$title')
-
+@section('content')
  <div class="mb-8 border-b border-[#E5E3DB] pb-5">
             <a href="" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
                 Induk</a>

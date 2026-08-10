@@ -6,65 +6,96 @@ use Illuminate\Http\Request;
 
 class MajorController extends Controller
 {
-    
+    private function getMajorsData()
+    {
+        return [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BD',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
+    }
+
     public function index()
     {
-        $title = 'Sistem Sekolah - Daftar Mapel';
-        $majors = [
-        [
-            'id' => 1,
-            'code' => 'AKL',
-            'name' => 'Akuntansi dan Keuangan Lembaga',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
-        ],
-        [
-            'id' => 2,
-            'code' => 'TKJ',
-            'name' => 'Teknik Komputer dan Jaringan',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
-        ],
-        [
-            'id' => 3,
-            'code' => 'BD',
-            'name' => 'Bisnis Digital',
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
-        ],
-    ];
-        return view('majors.index', [
-            'title' => $title, 'majors' => $majors,
-            
-                'majors' => $majors,
+        $title = 'sistem sekolah - daftar jurusan';
+        $majors = $this->getMajorsData();
+
+        return view('Majors.index', [
+            'title' => $title,
+            'majors' => $majors
         ]);
-
-
     }
 
     public function show(string $id)
     {
-        return "Menampilkan detail jurusan dengan ID: {$id}/>";
+        $title = 'sistem sekolah - data jurusan';
+        $majors = $this->getMajorsData();
+
+        $major = collect($majors)->firstWhere('id', (int) $id);
+
+        if (!$major) {
+            abort(404, 'Data jurusan tidak ditemukan');
+        }
+
+        return view('Majors.show', [
+            'title' => $title,
+            'major' => $major
+        ]);
     }
 
     public function create()
     {
-        return "Ini adalah halaman jurusan/>";
+        $title = 'sistem sekolah - tambah jurusan';
+
+        return view('Majors.create', [
+            'title' => $title
+        ]);
     }
 
     public function edit(string $id)
     {
-        return "Ini adalah halaman edit jurusan dengan ID: {$id}/>";
-    }
-    public function store()
-    {
-        return "Menambah data jurusan baru/>";
+        $title = 'sistem sekolah - edit jurusan';
+        $majors = $this->getMajorsData();
+
+        $major = collect($majors)->firstWhere('id', (int) $id);
+
+        if (!$major) {
+            abort(404, 'Data jurusan tidak ditemukan');
+        }
+
+        return view('Majors.edit', [
+            'title' => $title,
+            'major' => $major
+        ]);
     }
 
-    public function update(string $id)
+    public function store(Request $request)
     {
-        return "Mengupdate data jurusan dengan ID: {$id}/>";
+        return "menyimpan Jurusan";
+    }
+
+    public function update(Request $request, string $id)
+    {
+        return "mengubah data Jurusan dengan id: {$id}";
     }
 
     public function destroy(string $id)
     {
-        return "Menghapus data jurusan dengan ID: {$id}/>";
+        return "menghapus data Jurusan dari id: {$id}";
     }
 }

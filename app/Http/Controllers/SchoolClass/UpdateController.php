@@ -10,8 +10,8 @@ class UpdateController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, string $id)
     {
-        return "Melakuka perubahaan data siswa";
+        return "mengubah data kelas dengan id: {$id}";
     }
 }
